@@ -1,0 +1,34 @@
+<h1>AECF Knight Runner</h1>
+<div class="game-container">
+  <div class="chess-board-container">
+    <button (click)="resetBoard()">Reset Board</button>
+    <button (click)="generateRandomObstacles()" [disabled]="!canGenerateObstacles()">Generate Random Obstacles</button>
+    <button (click)="startGame()" [disabled]="gameStarted">Start Game</button>
+    <div class="chess-board">
+      <div *ngFor="let row of board; let i = index" class="row">
+        <div *ngFor="let cell of row; let j = index"
+             [ngClass]="{
+               'white': (i + j) % 2 === 0 && !board[i][j],
+               'black': (i + j) % 2 !== 0 && !board[i][j],
+               'highlight': isSelected(i, j),
+               'shortest-path': isShortestPath(i, j),
+               'obstacle': board[i][j] === true
+             }"
+             class="cell"
+             (click)="selectCell(i, j)">
+          <fa-icon *ngIf="knightGrid[i][j]" [icon]="['fas', 'chess-knight']"></fa-icon>
+          <fa-icon *ngIf="isStartingCell(i, j)" [icon]="['fas', 'house-flag']"></fa-icon>
+          <fa-icon *ngIf="isDestinationCell(i, j)" [icon]="['fas', 'crown']"></fa-icon>
+          <div class="order" *ngIf="isShortestPath(i, j)">{{ getCellOrder(i, j) }}</div>
+        </div>
+      </div>
+      <p *ngIf="selectedCells.length === 1">Select the destination</p>
+      
+    </div>
+  </div>
+  <div class="game-description">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+  </div>
+</div>

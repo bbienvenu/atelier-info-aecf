@@ -1,0 +1,74 @@
+h1 {
+  text-align: center;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chess-board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-description {
+  margin-left: 20px;
+  width: 300px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.chess-board {
+  display: inline-block;
+  border: 1px solid black;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.white {
+  background-color: white;
+}
+
+.black {
+  background-color: gray;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.shortest-path {
+  background-color: limegreen;
+}
+
+.order {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  margin: auto;
+}
+
+.obstacle {
+  background-color: #ff0000;
+}
+
