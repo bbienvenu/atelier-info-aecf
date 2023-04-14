@@ -1,13 +1,9 @@
-<div class="game-container">
-  <!-- ... -->
-</div>
 <div class="chess-board">
   <div class="chess-row" *ngFor="let row of board; let i = index">
     <div
       class="chess-cell"
       [class.disabled]="!gameStarted"
-      [class.highlight]="isSelected(i, j)"
-      [class.visited]="isShortestPath(i, j) && !isSelected(i, j)"
+      [class.visited]="isShortestPath(i, j) && knightVisitedGrid[i][j]"
       [class.obstacle]="board[i][j]"
       [class.even]="(i + j) % 2 === 0"
       [class.odd]="(i + j) % 2 === 1"
@@ -21,7 +17,7 @@
           [icon]="faCrown"></fa-icon>
       </ng-container>
       <fa-icon *ngIf="knightGrid[i][j]" [icon]="faChessKnight"></fa-icon>
-      <div class="order" *ngIf="isShortestPath(i, j) && !isSelected(i, j) && !knightGrid[i][j]">{{ getCellOrder(i, j) }}</div>
+      <div class="order" *ngIf="isShortestPath(i, j) && !isSelected(i, j) && knightVisitedGrid[i][j]">{{ getCellOrder(i, j) }}</div>
     </div>
   </div>
 </div>

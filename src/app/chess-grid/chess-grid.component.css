@@ -33,20 +33,12 @@
   background-color: #b58863;
 }
 
-.chess-cell.highlight.even {
-  background-color: #ffe0b3;
-}
-
-.chess-cell.highlight.odd {
-  background-color: #d0a582;
-}
-
 .chess-cell.visited.even {
-  background-color: #ffe0b3;
+  background-color: #a3e3a8;
 }
 
 .chess-cell.visited.odd {
-  background-color: #d0a582;
+  background-color: #78b37b;
 }
 
 .chess-cell.obstacle {

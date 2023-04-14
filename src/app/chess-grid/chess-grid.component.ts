@@ -17,6 +17,7 @@ export class ChessGridComponent {
 
   board: boolean[][] = Array.from({ length: 8 }, () => Array(8).fill(false));
   knightGrid: boolean[][] = Array.from({ length: 8 }, () => Array(8).fill(false));
+  knightVisitedGrid: boolean[][] = Array.from({ length: 8 }, () => Array(8).fill(false));
   selectedCells: Cell[] = [];
   shortestPath: Cell[] = [];
   gameStarted = false;
@@ -66,6 +67,7 @@ export class ChessGridComponent {
   resetBoard(): void {
     this.board = Array.from({ length: 8 }, () => Array(8).fill(false));
     this.knightGrid = Array.from({ length: 8 }, () => Array(8).fill(false));
+    this.knightVisitedGrid = Array.from({ length: 8 }, () => Array(8).fill(false));
     this.selectedCells = [];
     this.shortestPath = [];
     this.gameStarted = false;
@@ -92,6 +94,7 @@ export class ChessGridComponent {
       this.knightGrid[currentCell.x][currentCell.y] = true;
       await this.sleep(500);
       this.knightGrid[currentCell.x][currentCell.y] = false;
+      this.knightVisitedGrid[currentCell.x][currentCell.y] = true;
     }
   }
 
